@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(2, 15, 32, 0.4), rgba(2, 15, 32, 0.4)),
+    url(../img/map.png);
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.marker {
+  cursor: pointer;
+  height: 40px;
+  color: #fff;
+  border-radius: 20px;
+  opacity: 0.7;
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.marker_blue {
+  background-color: #3877ee;
+}
+
+.marker_green {
+  background-color: #6abf4b;
+}
+
+.marker__circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.marker__text {
+  display: none;
+  transition: all 0.3s ease;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  padding-right: 15px;
+}
+
+.marker_active .marker__text {
+  display: inline-block;
+}
+
+.marker_active {
+  opacity: 1;
+}
+
+.marker__circle::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 2px;
+  opacity: 1;
+  background: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.marker__circle::after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 2px;
+  opacity: 1;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.marker__circle_active.marker__circle::after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 2px;
+  opacity: 1;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation: transform 0.3s ease;
+}
